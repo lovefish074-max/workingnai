@@ -84,6 +84,12 @@ client.once(Events.ClientReady, async () => {
 	  { body: commands }
 	);
 
+	// 清空舊的全域指令
+	await rest.put(
+	  Routes.applicationCommands(client.user.id),
+	  { body: [] }
+	);
+
   console.log("Slash 指令已註冊");
 });
 
