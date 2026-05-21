@@ -77,9 +77,12 @@ client.once(Events.ClientReady, async () => {
   const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
   await rest.put(
-    Routes.applicationCommands(client.user.id),
-    { body: commands }
-  );
+	  Routes.applicationGuildCommands(
+		client.user.id,
+		'1490597966187331714'
+	  ),
+	  { body: commands }
+	);
 
   console.log("Slash 指令已註冊");
 });
